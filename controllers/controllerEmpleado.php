@@ -1,5 +1,6 @@
 <?php
 include_once("models/empleado.php");
+include_once("models/profesion.php");
 include_once("conexion.php");
 
 BD::createInstance();
@@ -21,12 +22,15 @@ class ControllerEmpleado {
         if ($_POST) {
             
             print_r($_POST);
-            $name =$_POST['nombreEmpleado'];
-            $lastName = $_POST['apellidoEmpleado'];
-            Empleado::create($name,$lastName);
+            $nombre =$_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $edad = $_POST['edad'];
+            $profesion = $_POST['profesion'];
+            Empleado::create($nombre,$apellido,$edad,$profesion);
             header("Location:./?controller=Empleado&accion=home");
         }
 
+        $profesiones = Profesion::consult();
         include_once("views/empleados/create.php");
     }
 
@@ -37,10 +41,12 @@ class ControllerEmpleado {
         if($_POST){
 
             $id=$_POST['id'];
-            $nombre=$_POST['nombreEmpleado'];
-            $apellido=$_POST['apellidoEmpleado'];
+            $nombre=$_POST['nombre'];
+            $apellido=$_POST['apellido'];
+            $edad=$_POST['edad'];
+            $profesion=$_POST['profesion'];
 
-            Empleado::edit($id, $nombre, $apellido);
+            Empleado::edit($id, $nombre, $apellido, $edad, $profesion);
             
             header("Location:./?controller=Empleado&accion=home");
 
@@ -49,6 +55,7 @@ class ControllerEmpleado {
         $id = $_GET['id'];
 
         $empleado = Empleado::search($id);
+        $profesiones = Profesion::consult();
 
         include_once("views/empleados/edit.php");
     }

@@ -36,12 +36,12 @@ class Empleado{
 
 
 
-    public static function create($nombreEmpleado, $apellidoEmpleado) {
+    public static function create($nombre, $apellido, $edad, $profesion) {
 
         $conexionBD=BD::createInstance();
 
-        $sql = $conexionBD->prepare("INSERT INTO usr_empleados (nombreEmpleado, apellidoEmpleado ) VALUE (?,?)");
-        $sql->execute(array($nombreEmpleado, $apellidoEmpleado));
+        $sql = $conexionBD->prepare("INSERT INTO usr_empleados (nombreEmpleado, apellidoEmpleado, edadEmpleado, idProfesion ) VALUE (?,?,?,?)");
+        $sql->execute(array($nombre, $apellido, $edad, $profesion));
 
 
     }
@@ -70,13 +70,13 @@ class Empleado{
     }
 
 
-    public static function edit($id, $nombre, $apellido){
+    public static function edit($id, $nombre, $apellido, $edad, $profesion){
 
 
         $conexionBD=BD::createInstance();
 
-        $sql = $conexionBD->prepare("UPDATE usr_empleados SET nombreEmpleado=?, apellidoEmpleado=?  WHERE idEmpleado=? ");
-        $sql->execute(array($nombre, $apellido, $id));
+        $sql = $conexionBD->prepare("UPDATE usr_empleados SET nombreEmpleado=?, apellidoEmpleado=?, edadEmpleado=?, idProfesion=?  WHERE idEmpleado=? ");
+        $sql->execute(array($nombre, $apellido, $edad, $profesion, $id));
 
     }
 }

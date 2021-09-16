@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Empresa</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,9 +18,11 @@
 
   <nav class="navbar navbar-expand navbar-light bg-light">
       <div class="nav navbar-nav">
-          <a class="nav-item nav-link active" href="?controller=Empleado&accion=home">Empresa <span class="visually-hidden">(current)</span></a>
+          <a class="nav-item nav-link active" href="?">Empresa <span class="visually-hidden">(current)</span></a>
           
           <a class="nav-item nav-link" href="?controller=Empleado&accion=home">Empleados</a>
+          <a class="nav-item nav-link" href="?controller=Empresa&accion=home">Empresas</a>
+          <a class="nav-item nav-link" href="?controller=Profesion&accion=home">Profesiones</a>
       </div>
   </nav>
       <div class="container">

@@ -11,16 +11,18 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>ACCION</th>
+            <th>Edad</th>
+            <th>Acción</th>
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($empleados as $empleado) { ?>
+    <?php foreach ($empleados as $empleado) : ?>
     
         <tr>
             <td><?php echo $empleado->idEmpleado;?></td>
             <td><?php echo $empleado->nombreEmpleado;?></td>
             <td><?php echo $empleado->apellidoEmpleado;?></td>
+            <td><?php echo $empleado->edadEmpleado;?></td>
             <td>
                 <div class="btn-group" role="group" aria-label="">
                     <a href="?controller=Empleado&accion=edit&id=<?php echo $empleado->idEmpleado; ?>" class="btn btn-info">Editar</a>
@@ -29,7 +31,7 @@
             
             </td>
         </tr>
-        <?php } ?>
+        <?php endforeach; ?>
     </tbody>
 </table>
 
